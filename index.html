@@ -1,68 +1,44 @@
-const canvas = document.getElementById('Matrix');
-const context = canvas.getContext('2d');
+<!DOCTYPE html>
+<html lang="en">
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Matrix Rain Effect" />
+    <meta property="og:image" itemprop="image"
+        content="https://sumitkcs.github.io/matrix-effect/assets/img/preview-green.png" />
+    <meta property="og:image:alt"
+        content="The words 'Not all who wander are lost' set against a starry night background. Click to visit website." />
+    <meta property="og:description" content="Project by Er. Sumit Kumar" />
+    <meta property="og:url" content="https://sumitKcs.github.io/matrix-effect/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta name="twitter:card" content="summary" />
+    <meta name="description" content="A constellation efffect animation app. Click to visit website." />
+    <meta name="theme-color" content="#000000" />
+    <meta name="keywords"
+        content="HTML, CSS, JavaScript, Canvas API, mouse trail, animation, particles, constellation" />
+    <meta name="author" content="Er. Sumit Kumar" />
+    <title>Matrix Rain Effect</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="canonical" href="https://sumitKcs.github.io/matrix-effect" />
 
-const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
-const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const nums = '0123456789';
+</head>
 
-const alphabet = katakana + latin + nums;
+<body>
 
-const fontSize = 16;
-const columns = canvas.width / fontSize;
+    <canvas id="canvas"></canvas>
 
-const rainDrops = [];
+    <script defer src="assets/js/app.js" type="module"></script>
 
-for (let x = 0; x < columns; x++) {
-  rainDrops[x] = 1;
-}
+</body>
 
-const draw = () => {
-  context.fillStyle = 'rgba(0, 0, 0, 0.05)';
-  context.fillRect(0, 0, canvas.width, canvas.height);
-
-  context.fillStyle = '#0F0';
-  context.font = fontSize + 'px monospace';
-
-  for (let i = 0; i < rainDrops.length; i++) {
-    const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-    context.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-
-    if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-      rainDrops[i] = 0;
-    }
-    rainDrops[i]++;
-  }
-};
-
-setInterval(draw, 30);
-
-	  html {
-  background: black;
-  height: 100%;
-  overflow: hidden;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-
-/* Color of the text - you can change it as you need. */
-
-div {
-  color: red;
-}
-
-
-/* These are the properties applied to div that has the "innerDiv" class - you can change it as you need. */
-
-.innerDiv {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-}
+</html>
